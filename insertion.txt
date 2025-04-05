@@ -1,0 +1,41 @@
+insert into waiter values(1,'John','Doe');
+insert into waiter values(2,'Jane','Smith');
+insert into waiter values(3,'Bob','Johnson');
+select * from waiter;
+
+insert into customer values(1,'Alice','Brown',900000001);
+insert into customer values(2,'Bob','Green',900000002);
+insert into customer values(3,'Charlie','Blue',900000003);
+select * from customer;
+
+insert into ord values(1,'15-APR-2023',1,1);
+insert into ord values(2,'16-APR-2023',2,2);
+insert into ord values(3,'17-APR-2023',3,1);
+select * from ord;
+
+insert into chef values(1,'John','Wick','Head_Chef');
+insert into chef values(2,'Sarah','Curry','Sous_Chef');
+insert into chef values(3,'Robert','Gun','Sous_Chef');
+select * from chef;
+
+insert into prepares values('Main_course',1);
+insert into prepares values('Appetizer',2);
+insert into prepares values('Dessert',3);
+select * from prepares;
+
+insert into food values(1,'Cheeseburger','Main Course',100,50);
+insert into food values(2,'French_Fries','Appetizer',50,100);
+insert into food values(3,'Chocolate_cake','Dessert',80,30);
+select * from food;
+
+insert into contains values(1,1);
+insert into contains values(1,2);
+insert into contains values(2,2);
+insert into contains values(2,3);
+insert into contains values(3,1);
+insert into contains values(3,3);
+select * from contains;
+
+insert into tips values(1,1,10);
+insert into tips values(1,3,20);
+select * from tips;

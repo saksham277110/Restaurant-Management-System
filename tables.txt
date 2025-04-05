@@ -1,0 +1,58 @@
+create table waiter(
+waiter_id integer primary key,
+waiter_fname varchar(50) not null,
+waiter_lname varchar(50)
+);
+
+create table customer( cust_id
+integer primary key,
+cust_fname varchar(50) not null,
+cust_lname varchar(50),
+contact_no integer
+);
+
+create table tips(
+waiter_id integer references waiter(waiter_id),
+cust_id integer references customer(cust_id),
+tips integer
+);
+
+create table ord(
+ord_no integer primary key, rd_date
+date not null,
+cust_id integer references customer(cust_id),
+waiter_id integer references waiter(waiter_id)
+);
+
+create table chef(
+chef_id integer primary key,
+chef_fname varchar(50) not null,
+chef_lname varchar(50),
+chef_type varchar(50) not null
+);
+
+create table food(
+item_no integer primary key,
+item_name varchar(50) not null,
+item_type varchar(50) not null,
+item_price integer not null,
+item_stock integer
+);
+
+create table contains(
+ord_no integer references ord(ord_no),
+item_no integer references food(item_no)
+);
+
+create table prepares(
+item_type varchar(50) primary key,
+chef_id integer references chef(chef_id)
+);
+
+create table bill(
+bill_no integer primary key,
+tot_price integer not null,
+tax float default 5,
+discount integer default 0,
+net_payable float as (tot_price+(tot_price*tax/100)-(tot_price*discount/100)), ord_no integer references ord(ord_no)
+);
